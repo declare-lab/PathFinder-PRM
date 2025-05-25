@@ -66,16 +66,16 @@ def build_conversation(user_prompt, samples, inputs):
 
 print("Loading dataset...")
 
-with open('/shared/sutd/panshul/dataset/Disc_PRM_ds_1.json', 'r') as f:
+with open('./dataset/Disc_PRM_ds_1.json', 'r') as f:
     prm800k_1 = json.load(f)
 
-with open('/shared/sutd/panshul/dataset/Disc_PRM_ds_2.json', 'r') as f:
+with open('./dataset/Disc_PRM_ds_2.json', 'r') as f:
     prm800k_2 = json.load(f)
 
-with open('/shared/sutd/panshul/dataset/processed_mistral_dataset_scored_cleaned_1.json', 'r') as f:
+with open('./dataset/processed_mistral_dataset_scored_cleaned_1.json', 'r') as f:
     mistral_1 = json.load(f)
 
-with open('/shared/sutd/panshul/dataset/processed_mistral_dataset_scored_cleaned_2.json', 'r') as f:
+with open('./dataset/processed_mistral_dataset_scored_cleaned_2.json', 'r') as f:
     mistral_2 = json.load(f)
 
 scored_dataset = prm800k_1 + prm800k_2 + mistral_1 + mistral_2
