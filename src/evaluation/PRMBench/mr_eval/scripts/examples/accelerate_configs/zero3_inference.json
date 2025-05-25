@@ -1,0 +1,38 @@
+{
+    "fp16": {
+      "enabled": false
+    },
+    "bf16": {
+      "enabled": true
+    },
+    "zero_optimization": {
+      "stage": 3,
+      "offload_param": {
+        "device": "cpu",
+        "pin_memory": true
+      },
+      "offload_optimizer": {
+        "device": "cpu",
+        "pin_memory": true
+      },
+      "overlap_comm": true,
+      "contiguous_gradients": true,
+      "reduce_scatter": true,
+      "stage3_max_live_parameters": 5e7,
+      "stage3_max_reuse_distance": 5e7,
+      "stage3_prefetch_bucket_size": 5e5,
+      "stage3_param_persistence_threshold": 1e3
+    },
+    "activation_checkpointing": {
+      "partition_activations": true,
+      "cpu_checkpointing": true,
+      "contiguous_memory_optimization": true,  
+      "number_checkpoints": 5,                
+      "synchronize_checkpoint_boundary": true
+    },
+    "train_micro_batch_size_per_gpu": 1,
+    "inference_mode": true,
+    "memory_efficient_linear": true,
+    "wall_clock_breakdown": false,
+    "pin_memory": false
+  }

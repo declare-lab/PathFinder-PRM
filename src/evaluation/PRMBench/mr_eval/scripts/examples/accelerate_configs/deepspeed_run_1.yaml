@@ -1,0 +1,13 @@
+compute_environment: LOCAL_MACHINE
+distributed_type: DEEPSPEED
+deepspeed_config:
+  deepspeed_config_file: /shared/sutd/panshul/PRMBench/mr_eval/scripts/examples/accelerate_configs/zero3_inference.json
+machine_rank: 0
+main_training_function: main
+main_process_port: 29502
+num_machines: 1
+num_processes: 1
+rdzv_backend: static
+same_network: true
+use_cpu: false
+downcast_bf16: no
