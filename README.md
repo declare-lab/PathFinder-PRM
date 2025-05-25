@@ -1,6 +1,8 @@
 # PathFinder-PRM
 
-![mascot](images/PathFinder.png)
+<!-- ![mascot](images/PathFinder.png) -->
+
+<img src="images/PathFinder.png" width="600">
 
 This repository contains the official implementation of **Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision**. It is organized into the following three components:
 
