@@ -35,3 +35,15 @@ Refer to the following for how to proceed with each part of the project:
 * [PRM Training](src/training/README.md)
 * [PRM Evaluation](src/evaluation/README.md)
 
+## Citation
+```
+@misc{pala2025errortypingsmarterrewards,
+      title={Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision}, 
+      author={Tej Deep Pala and Panshul Sharma and Amir Zadeh and Chuan Li and Soujanya Poria},
+      year={2025},
+      eprint={2505.12345},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2505.12345}, 
+}
+```
