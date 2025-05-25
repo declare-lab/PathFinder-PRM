@@ -1,13 +1,11 @@
 # PathFinder-PRM Evaluation
 
-This directory contains the evaluation setup for evaluating PathFinder-PRM. PRMBench evaluates Process Reward Models across multiple dimensions: Simplicity, Soundness, and Sensitivity.
+This directory contains the evaluation setup for evaluating PathFinder-PRM.
 
 ## 1. PRMBench
 
-PRMBench evaluates fine-grained error detection capabilities of Process Reward Models across 11 different error categories.
+PRMBench evaluates fine-grained error detection capabilities of Process Reward Models across multiple dimensions: Simplicity, Soundness, and Sensitivity, with 11 total error categories.
 
-### Prerequisites
-We recommend running the evaluation with the equivalent of 1 H100 GPU.
 #### Dependencies
 
 ```bash

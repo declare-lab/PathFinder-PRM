@@ -1,0 +1,68 @@
+# Model arguments
+
+# model_init_kwargs:
+model_name_or_path: <Path to updated Qwen2_5_Math_7b_instruct model> # run prepare_model.py first
+model_revision: main
+torch_dtype: bfloat16
+trust_remote_code: True
+attn_implementation: flash_attention_2
+
+dataset_mixer:
+  "<Path to Tokenised Train dataset>": 1.0 # Run prepare_train_dataset.py first
+dataset_splits:
+  - train
+  - test
+preprocessing_num_workers: 1
+truncation_side: "right"
+
+# Trainer config
+output_dir: <Save Path>
+overwrite_output_dir: true
+
+do_train: True
+do_eval: True
+do_predict: False
+
+eval_strategy: "steps"
+eval_steps: 1000
+batch_eval_metrics: true
+eval_on_start: True
+
+metric_for_best_model: 'token_accuracy'
+
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 2
+gradient_accumulation_steps: 32
+
+learning_rate: 1.0e-05
+num_train_epochs: 2
+max_steps: -1
+lr_scheduler_type: cosine
+max_grad_norm: 1.0
+warmup_ratio: 0.1
+
+log_level: info
+logging_steps: 10
+logging_strategy: steps
+
+save_strategy: "steps"
+save_steps: 1000
+save_only_model: True
+save_total_limit: 20
+
+seed: 42
+
+bf16: true
+
+run_name: PathFinder-PRM-run1
+report_to:
+  - "wandb"
+
+remove_unused_columns: true
+
+optim: adamw_torch
+group_by_length: true
+
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: False
