@@ -1,4 +1,7 @@
-# PathFinder-PRM
+<h1 align="center"> 
+PathFinder-PRM
+<br/>
+</h1>
 
 <!-- ![mascot](images/PathFinder.png) -->
 <div align="center">
