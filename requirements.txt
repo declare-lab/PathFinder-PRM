@@ -1,0 +1,11 @@
+vllm
+packaging
+ninja
+trl
+deepspeed
+bitsandbytes
+sentence-transformers
+colorlog
+peft
+wandb
+math-verify[antlr4_13_2]
