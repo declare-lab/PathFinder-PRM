@@ -11,9 +11,8 @@ This directory contains the evaluation setup for evaluating PathFinder-PRM.
 #### 1. Basic Evaluation Run
 
 ```bash
-cd src/evaluation
-chmod +x prm_bench.sh
-./prm_bench.sh
+chmod +x prm_bench_eval.sh
+./prm_bench_eval.sh
 ```
 
 This will:
@@ -69,7 +68,7 @@ This will run the evaluations on PathFinder-PRM for all 4 subsets of ProcessBenc
 
 ## 3. Reward-Guided Greedy Search
 
-Reward-Guided Greedy Search is an inference-time procedure for measuring how well a Process Reward Model (PRM) can guide step-by-step generation toward high-quality outputs. At each decoding step, the policy model generates 8 candidate continuations; the PRM then scores each partial trace according to its expected downstream correctness, and the highest-scoring candidate is greedily selected. By repeating this “propose → score → select” cycle until completion, Reward-Guided Greedy Search provides a clear metric of a PRM's performance in guiding the policy model towards correct solutions. In our setup, we use `Qwen/Qwen2.5-7B-Instruct` as the policy model. We conducted this evaluation across several widely recognized math reasoning benchmarks, including AIME24, AMC23, MATH, Olympiad Bench, College MATH, and Minerva MATH2.
+Reward-Guided Greedy Search is an inference-time procedure for measuring how well a Process Reward Model (PRM) can guide step-by-step generation toward high-quality outputs. At each decoding step, the policy model generates 8 candidate continuations; the PRM then scores each partial trace according to its expected downstream correctness, and the highest-scoring candidate is greedily selected. By repeating this “propose → score → select” cycle until completion, Reward-Guided Greedy Search provides a clear metric of a PRM's performance in guiding the policy model towards correct solutions. In our setup, we use `Qwen/Qwen2.5-7B-Instruct` as the policy model. We conducted this evaluation across several widely recognized math reasoning benchmarks, including AIME24, AMC23, MATH, Olympiad Bench, College MATH, and Minerva MATH.
 
 ### Running evaluation
 To run Reward-Guided Greedy Search and evaluate the final generations, run the following command:
