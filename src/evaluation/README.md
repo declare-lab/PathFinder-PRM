@@ -4,27 +4,8 @@ This directory contains the evaluation setup for evaluating PathFinder-PRM.
 
 ## 1. PRMBench
 
-PRMBench evaluates fine-grained error detection capabilities of Process Reward Models across multiple dimensions: Simplicity, Soundness, and Sensitivity, with 11 total error categories.
+**PRMBench** evaluates fine-grained error detection capabilities of Process Reward Models across multiple dimensions: Simplicity, Soundness, and Sensitivity, with 11 total error categories.
 
-#### Dependencies
-
-```bash
-cd src/evaluation/PRMBench
-pip install -r requirements.txt
-```
-
-**Key dependencies:**
-
-- `accelerate>=1.1.1` (for distributed evaluation)
-- `deepspeed` (for memory optimization)
-- `transformers` (for model loading)
-- `torch` with CUDA support
-
-Please install these according to your system requirements.
-
-### Model Access
-
-The PathFinder-PRM model is available on HuggingFace at `declare-lab/PathFinder-PRM-7B`.
 ### Quick Start
 
 #### 1. Basic Evaluation Run
@@ -48,12 +29,10 @@ python results_prm_bench.py
 ```
 
 This will output:
-
 - Detailed scores by category (Simplicity, Soundness, Sensitivity)
 - Overall PRMScore
-- LaTeX-formatted results for easy copying
 
-### Configuration Guide
+### PRMBench Configuration Guide
 
 #### Model Configuration (`disc_prm_eval.yaml`)
 
@@ -75,69 +54,56 @@ script_args:
   output_path: ./log/disc_prm_4gpu_output.jsonl     # Results output path
 ```
 
-#### Key Parameters to Modify:
+## 2. ProcessBench
 
-**Model Selection:**
+**ProcessBench** is a benchmark designed to evaluate language models' ability to identify errors in mathematical reasoning processes. It comprises 3,400 test cases, primarily sourced from different math reasoning benchmarks.
 
-```yaml
-model_args: pretrained=your-model-path-or-name
+### Running ProcessBench Evaluation
+To run ProcessBench Evaluation on PathFinder-PRM, you can use the following commands:
+
+```bash
+bash process_bench_eval.sh
 ```
 
-**Batch Size Optimization:**
+This will run the evaluations on PathFinder-PRM for all 4 subsets of ProcessBench and save the outputs and results under `./ProcessBench/code/outputs/PathFinder-PRM-7B/`
 
-```yaml
-batch_size: 2  # Increase if you have sufficient GPU memory
+## 3. Reward-Guided Greedy Search
+
+Reward-Guided Greedy Search is an inference-time procedure for measuring how well a Process Reward Model (PRM) can guide step-by-step generation toward high-quality outputs. At each decoding step, the policy model generates 8 candidate continuations; the PRM then scores each partial trace according to its expected downstream correctness, and the highest-scoring candidate is greedily selected. By repeating this “propose → score → select” cycle until completion, Reward-Guided Greedy Search provides a clear metric of a PRM's performance in guiding the policy model towards correct solutions. In our setup, we use `Qwen/Qwen2.5-7B-Instruct` as the policy model. We conducted this evaluation across several widely recognized math reasoning benchmarks, including AIME24, AMC23, MATH, Olympiad Bench, College MATH, and Minerva MATH2.
+
+### Running evaluation
+To run Reward-Guided Greedy Search and evaluate the final generations, run the following command:
+
+```bash
+bash reward_guided_search_eval.sh
 ```
 
-**Output Paths:**
+This will run the evaluations on PathFinder-PRM for all 6 math benchmarks and save the outputs and results under `./reward_guided_search/outputs/PathFinder-PRM-7B/`
 
-```yaml
-output_path: ./log/your_custom_output.jsonl
-save_to_ckpt:
-  prmtest_classified: ./log/ckpt/your_checkpoint.jsonl
-```
+## Acknowledgements
 
-#### Hardware Configuration (`deepspeed_run_1.yaml`)
+This evaluation setup builds upon the work of several open-source repositories. We gratefully acknowledge the authors and contributors of the following projects:
 
-```yaml
-compute_environment: LOCAL_MACHINE
-distributed_type: DEEPSPEED
-deepspeed_config:
-  deepspeed_config_file: /path/to/zero3_inference.json
-num_processes: 1    # Adjust based on your GPU count
-```
+- [R-PRM](https://github.com/NJUNLP/R-PRM/tree/main): Evaluation Setup for Reward-Guided Greedy Search  
+- [ProcessBench](https://github.com/QwenLM/ProcessBench): Benchmark and Evaluation Setup for ProcessBench
+- [PRMBench](https://github.com/ssmisya/PRMBench/tree/main): Benchmark and Evaluation Setup for PRMBench
+- [Math-Verify](https://github.com/huggingface/Math-Verify): Tool to evaluate math responses
 
-#### Multi-GPU Setup:
+Please refer to their respective repositories for license and contribution details.
 
-```yaml
-num_processes: 4    # For 4 GPUs
-machine_rank: 0     # Keep as 0 for single machine
-```
 
-#### ZeR0-3 inference config (`zero3_inference.json`)
-
-The DeepSpeed ZeRO-3 configuration optimizes memory usage:
-
-```json
-{
-  "zero_optimization": {
-    "stage": 3,                              # ZeRO-3 for maximum memory savings
-    "stage3_max_live_parameters": 5e7,       # Adjust based on model size
-    "stage3_max_reuse_distance": 5e7,        # Memory reuse distance
-    "offload_param": {
-      "device": "cpu",                       # Offload parameters to CPU
-      "pin_memory": true
-    }
-  },
-  "train_micro_batch_size_per_gpu": 1        # Micro-batch size
-}
-```
-
-```
 ## Citation
 
-If you use this evaluation setup, please cite:
+If you found our evaluation setup helpful, please cite:
 
 ```bibtex
-
+@misc{pala2025errortypingsmarterrewards,
+      title={Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision}, 
+      author={Tej Deep Pala and Panshul Sharma and Amir Zadeh and Chuan Li and Soujanya Poria},
+      year={2025},
+      eprint={2505.12345},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2505.12345}, 
+}
 ```
