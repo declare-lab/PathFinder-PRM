@@ -1,14 +1,14 @@
 # Model arguments
 
 # model_init_kwargs:
-model_name_or_path: <Path to updated Qwen2_5_Math_7b_instruct model> # run prepare_model.py first
+model_name_or_path: ./models/Qwen2.5-Math-7B-Instruct-updated # run prepare_model.py first
 model_revision: main
 torch_dtype: bfloat16
 trust_remote_code: True
 attn_implementation: flash_attention_2
 
 dataset_mixer:
-  "<Path to Tokenised Train dataset>": 1.0 # Run prepare_train_dataset.py first
+  "./train_data/PathFinder_600k_tokenized_qwen_25_7B": 1.0 # Run prepare_train_dataset.py first
 dataset_splits:
   - train
   - test
@@ -16,7 +16,7 @@ preprocessing_num_workers: 1
 truncation_side: "right"
 
 # Trainer config
-output_dir: <Save Path>
+output_dir: ./models/PathFinder_PRM_run1
 overwrite_output_dir: true
 
 do_train: True

@@ -7,7 +7,7 @@ tokenizer = AutoTokenizer.from_pretrained(
     )
 
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen2.5-Math-7B-Instruct", 
+    'Qwen/Qwen2.5-7B-Instruct', 
     torch_dtype=torch.bfloat16, 
     device_map="cpu"
     )

@@ -2,11 +2,11 @@ from datasets import load_dataset, DatasetDict
 from transformers import AutoTokenizer
 
 tokenizer = AutoTokenizer.from_pretrained(
-    "/shared/sutd/tej/Finegrained_PRM/models/Qwen2.5-Math-7B-Instruct-updated",
+    "./models/Qwen2.5-Math-7B-Instruct-updated",
     use_fast = True
 )
 
-raw_datasets = load_dataset("declare-lab/PathFinder-dataset")
+raw_datasets = load_dataset("declare-lab/PathFinder-600K")
 column_names = list(raw_datasets["train"].features)
 
 def batch_preprocess(batch):
@@ -68,7 +68,7 @@ dataset_dict = DatasetDict({
     "test": eval_dataset
 })
 
-save_path = "/shared/sutd/tej/Finegrained_PRM/train_data/Disc_PRM_ver3_final_tokenized_qwen_25_7B"
+save_path = "./train_data/PathFinder_600k_tokenized_qwen_25_7B"
 
 # Save the DatasetDict to disk
 dataset_dict.save_to_disk(save_path)
