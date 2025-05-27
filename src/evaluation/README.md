@@ -100,9 +100,9 @@ If you found our evaluation setup helpful, please cite:
       title={Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision}, 
       author={Tej Deep Pala and Panshul Sharma and Amir Zadeh and Chuan Li and Soujanya Poria},
       year={2025},
-      eprint={2505.12345},
+      eprint={2505.19706},
       archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2505.12345}, 
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.19706}, 
 }
 ```
