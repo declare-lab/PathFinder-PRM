@@ -49,3 +49,17 @@ Once all configurations are set, start training with:
 ```bash
 bash train_prm.sh
 ```
+
+## Citation
+
+```bibtex
+@misc{pala2025errortypingsmarterrewards,
+      title={Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision}, 
+      author={Tej Deep Pala and Panshul Sharma and Amir Zadeh and Chuan Li and Soujanya Poria},
+      year={2025},
+      eprint={2505.19706},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.19706}, 
+}
+```
