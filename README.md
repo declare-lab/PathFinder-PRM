@@ -7,7 +7,8 @@ PathFinder-PRM
 <div align="center">
 <img src="images/PathFinder.png" width="300">
 
-[![Static Badge](https://img.shields.io/badge/Checkpoints-blue?style=flat&link=https%3A%2F%2Fhuggingface.co%2Fdeclare-lab%2FPathFinder-PRM-7B)](https://huggingface.co/declare-lab/PathFinder-PRM-7B) [![Static Badge](https://img.shields.io/badge/Dataset-purple?style=flat&link=https%3A%2F%2Fhuggingface.co%2Fdatasets%2Fdeclare-lab%2FPathFinder-600K)](https://huggingface.co/datasets/declare-lab/PathFinder-600K) [![Static Badge](http://arxiv.org/abs/2505.)]
+[![Static Badge](https://img.shields.io/badge/Checkpoints-blue?style=flat&link=https%3A%2F%2Fhuggingface.co%2Fdeclare-lab%2FPathFinder-PRM-7B)](https://huggingface.co/declare-lab/PathFinder-PRM-7B) [![Static Badge](https://img.shields.io/badge/Dataset-purple?style=flat&link=https%3A%2F%2Fhuggingface.co%2Fdatasets%2Fdeclare-lab%2FPathFinder-600K)](https://huggingface.co/datasets/declare-lab/PathFinder-600K) [![Static Badge](https://img.shields.io/badge/Paper-red?style=flat&link=https%3A%2F%2Farxiv.org%2Fabs%2F2505.19706
+)]([http://arxiv.org/abs/2505.](https://arxiv.org/abs/2505.19706))
 </div>
 
 This repository contains the official implementation of **Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision**. It is organized into the following three components:
@@ -46,9 +47,9 @@ Refer to the following for how to proceed with each part of the project:
       title={Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision}, 
       author={Tej Deep Pala and Panshul Sharma and Amir Zadeh and Chuan Li and Soujanya Poria},
       year={2025},
-      eprint={2505.12345},
+      eprint={2505.19706},
       archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2505.12345}, 
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.19706}, 
 }
 ```
